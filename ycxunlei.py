@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
-import sys
-import io
+
 import requests
 import json
 from six.moves.urllib.parse import quote
-import time
 
+#python2 改变标准输出的默认编码
+import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-# sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8') #python3 改变标准输出的默认编码
-
+#python3 改变标准输出的默认编码
+#import io
+# sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8') 
 class YCXunlei(object):
     def __init__(self, cookie_str=r'this is a cookie'):
         '''

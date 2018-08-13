@@ -5,9 +5,9 @@ import json
 #get the cookie information from the browser when you login yuancheng.xunlei.com 
 #all you need are userid and sessionid
 #Chrome user can press F12 to get these information
-cookie_str = r'userid=xxxxxx; sessionid=xxxxxxxxxxxxxxxxxxxxxxxxxx;'
+cookie_str = r'userid=xxxxxxx; sessionid=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;'
 
-#init the class
+#init the class with cookie information
 xl = YCXunlei(cookie_str)
 
 #login
@@ -22,6 +22,7 @@ if dvs != None:
     print(json.dumps(dvs).decode("unicode-escape"))
 
 #get the device pid by device name
+#the device name shoud be supplied
 pid = xl.getPid(r'小米路由器')
 print('-----------------------------')
 print(pid)
@@ -51,5 +52,5 @@ print(res)
 #device pid and download link should be supplied
 filename = xl.getFileInfo(pid,"thunder://QUFtYWduZXQ6P3h0PXVybjpidGloOjM0Q0IwQjY2QUVBRjk5MDVBQTAxQzJBNDcyNzVFMDBBREFBNjMyQzEmZG490dPs+7mlwtQuMjAxOC5FUDAxLTEwLjE5MjBYMTA4MFAuV0VCLURMLlgyNjQuQXVkaW8uQUFDLm1wNFpa")
 print('-----------------------------')
-print(filename)
+print(filename['taskInfo']['name'])
 
