@@ -145,5 +145,5 @@ class YCXunlei(object):
             time = task['remainTime']
             m, s = divmod(time, 60)
             h, m = divmod(m, 60)
-            returncontent = returncontent + task['name']+' %.2f '%size + unit +'\n'+u'下载速度：%.2f KB/s\n'%(task['speed']/1024)+u'剩余时间：%02d:%02d:%02d \n' % (h, m, s)
+            returncontent = returncontent + task['name']+' %.2f '%size + unit +'\n'+u'下载速度：%.2f KB/s\n'%(task['speed']/1024)+u'下载进度: %.2f%%\n'%(task['progress']/100.0)+u'剩余时间：%02d:%02d:%02d \n\n' % (h, m, s)
         return returncontent
