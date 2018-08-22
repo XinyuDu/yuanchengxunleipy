@@ -132,3 +132,18 @@ class YCXunlei(object):
         req = request.get(url, headers=headers)
         result = req.json()
         return result
+
+    def getStatus(self,pid):
+        tasks = self.getTasks(pid)['tasks']
+        returncontent = ''
+        for task in tasks:
+            size = task['size']/1048576.0
+            unit = 'MB'
+            if size > 1024.0:
+                size = size/1024.0
+                unit = 'GB'
+            time = task['remainTime']
+            m, s = divmod(time, 60)
+            h, m = divmod(m, 60)
+            returncontent = returncontent + task['name']+' %.2f '%size + unit +'\n'+u'下载速度：%.2f KB/s\n'%(task['speed']/1024)+u'剩余时间：%02d:%02d:%02d \n' % (h, m, s)
+        return returncontent
